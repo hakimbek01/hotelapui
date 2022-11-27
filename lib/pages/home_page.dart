@@ -22,146 +22,148 @@ class _HomePageState extends State<HomePage> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 300,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/ic_header.jpg'),
-                  fit: BoxFit.cover
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 300,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/ic_header.jpg'),
+                    fit: BoxFit.cover
+                  ),
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.bottomRight,
+                      colors: [
+                        Colors.black.withOpacity(.9),
+                        Colors.black.withOpacity(.8),
+                        Colors.black.withOpacity(.6),
+                        Colors.black.withOpacity(.5),
+                        Colors.black.withOpacity(.4)
+                      ]
+                    )
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 40),
+                        child: const Text(
+                          "Best Hotels Ever",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 30,),
+                      Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 40),
+                        padding: const EdgeInsets.symmetric(vertical: 3),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20)
+                        ),
+                        child: TextFormField(
+                          decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            prefixIcon: Icon(Icons.search,color: Colors.grey,),
+                            hintText: 'Search for hotels...',
+                            hintStyle: TextStyle(color: Colors.grey)
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 30,)
+                    ],
+                  ),
                 ),
               ),
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.bottomRight,
-                    colors: [
-                      Colors.black.withOpacity(.9),
-                      Colors.black.withOpacity(.8),
-                      Colors.black.withOpacity(.6),
-                      Colors.black.withOpacity(.5),
-                      Colors.black.withOpacity(.4)
-                    ]
-                  )
-                ),
+              SizedBox(height: 20,),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Text(
+                      "Busines Hotel",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.grey.shade800,
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    SizedBox(height: 20,),
                     Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 40),
-                      child: const Text(
-                        "Best Hotels Ever",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
+                      height: 200,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          _item('Hotel 1',imageList[0]),
+                          _item('Hotel 2',imageList[1]),
+                          _item('Hotel 3',imageList[2]),
+                          _item('Hotel 4',imageList[3]),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    Text(
+                      "Airport Hotels",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.grey.shade800,
                           fontWeight: FontWeight.bold
-                        ),
                       ),
                     ),
-                    const SizedBox(height: 30,),
+                    SizedBox(height: 20,),
                     Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 40),
-                      padding: const EdgeInsets.symmetric(vertical: 3),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20)
-                      ),
-                      child: TextFormField(
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          prefixIcon: Icon(Icons.search,color: Colors.grey,),
-                          hintText: 'Search for hotels...',
-                          hintStyle: TextStyle(color: Colors.grey)
-                        ),
+                      height: 200,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          _item('Hotel 1',imageList[4]),
+                          _item('Hotel 2',imageList[2]),
+                          _item('Hotel 3',imageList[1]),
+                          _item('Hotel 4',imageList[3]),
+                        ],
                       ),
                     ),
-                    const SizedBox(height: 30,)
+                    SizedBox(height: 20,),
+                    Text(
+                      "Resort Hotels",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.grey.shade800,
+                          fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    Container(
+                      height: 200,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          _item('Hotel 1',imageList[2]),
+                          _item('Hotel 2',imageList[0]),
+                          _item('Hotel 3',imageList[3]),
+                          _item('Hotel 4',imageList[1]),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 20,),
                   ],
                 ),
-              ),
-            ),
-            SizedBox(height: 20,),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Busines Hotel",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.grey.shade800,
-                      fontWeight: FontWeight.bold
-                    ),
-                  ),
-                  SizedBox(height: 20,),
-                  Container(
-                    height: 200,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        _item('Hotel 1',imageList),
-                        _item('Hotel 2',imageList),
-                        _item('Hotel 3',imageList),
-                        _item('Hotel 4',imageList),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 20,),
-                  Text(
-                    "Airport Hotels",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.grey.shade800,
-                        fontWeight: FontWeight.bold
-                    ),
-                  ),
-                  SizedBox(height: 20,),
-                  // Container(
-                  //   height: 200,
-                  //   child: ListView(
-                  //     scrollDirection: Axis.horizontal,
-                  //     children: [
-                  //       _item('Hotel 1'),
-                  //       _item('Hotel 2'),
-                  //       _item('Hotel 3'),
-                  //       _item('Hotel 4'),
-                  //     ],
-                  //   ),
-                  // ),
-                  SizedBox(height: 20,),
-                  Text(
-                    "Resort Hotels",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.grey.shade800,
-                        fontWeight: FontWeight.bold
-                    ),
-                  ),
-                  SizedBox(height: 20,),
-                  // Container(
-                  //   height: 200,
-                  //   child: ListView(
-                  //     scrollDirection: Axis.horizontal,
-                  //     children: [
-                  //       _item('Hotel 1'),
-                  //       _item('Hotel 2'),
-                  //       _item('Hotel 3'),
-                  //       _item('Hotel 4'),
-                  //     ],
-                  //   ),
-                  // ),
-                  SizedBox(height: 20,),
-                ],
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -182,7 +184,7 @@ class _HomePageState extends State<HomePage> {
   }
 
 
-  Widget _item(title,List<String> h) {
+  Widget _item(title,image) {
     return AspectRatio(
       aspectRatio: 2/2,
       child: Container(
@@ -190,7 +192,7 @@ class _HomePageState extends State<HomePage> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           image: DecorationImage(
-            image: AssetImage(imageRandom(h)),
+            image: AssetImage(image),
             fit: BoxFit.cover
           )
         ),
@@ -226,7 +228,9 @@ class _HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.bold
                     ),
                   ),
-                  Icon(CupertinoIcons.heart_fill,color: Colors.red,)
+                  LikeButton(
+                   padding: EdgeInsets.only(top: 150),
+                 )
                 ],
               ),
             ),
